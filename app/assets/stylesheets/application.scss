@@ -49,6 +49,14 @@
         margin-left: 5px;
         margin-right: 5px;
       }
+
+      .navbar-nav{
+        float: left;
+        margin-left: 20em;
+        .Logo{
+            margin-top: -15px;
+        }
+      }
     }
 
     // Buttons ====================================================================
@@ -271,7 +279,7 @@
 
       & > li.active > a,
       & > li.active > a:hover {
-        background-color: none;
+        background-color: blue;
         @include btn-shadow-inverse($btn-default-bg);
         border: 1px solid rgba(0, 0, 0, 0.6);
       }

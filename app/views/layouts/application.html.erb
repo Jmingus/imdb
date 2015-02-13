@@ -7,6 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar">
+  <ul class="nav navbar-nav">
+	  <li class="Logo"><h1>IMDB</h1></li>
+	  <li><%= link_to 'Home', root_path %></li>
+	  <% if user_signed_in? %>
+		  <li class="right-side"><%= current_user.user_name %></li>
+		  <li class="right-side"><%= link_to 'Sign-out', destroy_user_session_path, method: :delete %></li>
+		  <li class="right-side"></li>
+		  <% else %>
+	  <li><%= link_to 'Sign-in', new_user_session_path %></li>
+	  <li><%= link_to 'Sign-up', new_user_registration_path %></li>
+			<% end %>
+	</ul>
+</nav>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
