@@ -12,9 +12,10 @@
 	  <li class="Logo"><h1>IMDB</h1></li>
 	  <li><%= link_to 'Home', root_path %></li>
 	  <% if user_signed_in? %>
+		  <li><%= link_to 'Create Post', posts_new_path %></li>
 		  <li class="right-side"><%= current_user.user_name %></li>
 		  <li class="right-side"><%= link_to 'Sign-out', destroy_user_session_path, method: :delete %></li>
-		  <li class="right-side"></li>
+		  <li class="right-side"><%= image_tag current_user.avatar.url(:thumb) %></li>
 		  <% else %>
 	  <li><%= link_to 'Sign-in', new_user_session_path %></li>
 	  <li><%= link_to 'Sign-up', new_user_registration_path %></li>

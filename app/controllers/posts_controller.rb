@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def new
+    @post = Post.new
   end
 
   def edit
@@ -7,6 +8,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+    if @post.save
+      redirect_to root_path
+    else
+      "Try Again Later"
+    end
   end
 
   private
@@ -15,6 +21,6 @@ class PostsController < ApplicationController
 # Be sure to update your create() and update() controller methods.
 
   def post_params
-    params.require(:post).permit(:poster_image)
+    params.require(:post).permit(:poster_image, :url, :description, :movie_title)
   end
 end
